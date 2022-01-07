@@ -26,7 +26,7 @@ jobs:
       run: npm run build:prod
       
     - name: check directory
-      run: ls
+      run: ls -l dist
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.2.0
