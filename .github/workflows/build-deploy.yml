@@ -24,6 +24,9 @@ jobs:
 
     - name: Build
       run: npm run build:prod
+      
+    - name: check directory
+      run: ls
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.2.0
