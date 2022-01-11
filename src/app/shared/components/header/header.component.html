@@ -1,6 +1,6 @@
-<div class="fixed z-50 w-full ">
-  <div class="bg-zinc-700  rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 max-w-full mx-auto px-6 lg:px-24">
-    <div class="flex justify-between items-center border-b-2 border-yellow-500 py-6 md:justify-start md:space-x-10">
+<header class="sticky top-0 z-50 w-full">
+  <div class="bg-zinc-700  rounded-b-lg shadow-lg ring-1 ring-black ring-opacity-5 max-w-full mx-auto px-6 lg:px-24">
+    <nav class="flex justify-between items-center border-b-2 border-yellow-500 py-6 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <a href="#">
           <span class="sr-only">Logo menu</span>
@@ -32,7 +32,7 @@
           Contactanos
         </a>
       </div>
-    </div>
+    </nav>
   </div>
 
   <!--
@@ -46,7 +46,7 @@
       To: "opacity-0 scale-95"
   -->
   <div [ngClass]="{'hidden':getIsClosed()&&!getClicked(),'scale-out-ver-top':getIsClosed()&&getClicked(),'scale-in-ver-top':!getIsClosed()}" class="absolute top-0 inset-x-0 p-2 transition ease-out transform origin-top-right md:hidden">
-    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-zinc-700 divide-y-2 divide-yellow-500">
+    <nav class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-zinc-700 divide-y-2 divide-yellow-500">
       <div class="pt-5 pb-6 px-5">
         <div class="flex items-center justify-between">
           <div>
@@ -105,6 +105,6 @@
           </a>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
-</div>
+</header>
