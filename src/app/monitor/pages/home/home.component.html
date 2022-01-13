@@ -77,37 +77,62 @@
   </a>
 </section>
 
-<section class="w-11/12 min-h-[30vh] mx-auto flex flex-col justify-evenly sm:flex-row sm:items-center sm:justify-around">
-    <div *ngFor="let item of [].constructor(3); index as i" class="rounded border-2 my-2 shadow-md flex flex-col items-center py-5 px-5 lg:px-20 ">
-        <span class="text-4xl"> 
-            #{{i+1}}
-        </span>
-        <p class="text-base font-medium">
-            Example Card
-        </p>
-    </div>
-
-
+<section
+  class="w-11/12 min-h-[30vh] mx-auto flex flex-col justify-evenly sm:flex-row sm:items-center sm:justify-around"
+>
+  <div
+    *ngFor="let item of [].constructor(3); index as i"
+    class="rounded border-2 my-2 shadow-md flex flex-col items-center py-5 px-5 lg:px-20"
+  >
+    <span class="text-4xl">
+      #{{i+1}}
+    </span>
+    <p class="text-base font-medium">
+      Example Card
+    </p>
+  </div>
 </section>
 
 <section class="w-full min-h-[30vh] py-1 lg:py-4 grid">
-    <h2 class="text-2xl md:text-3xl mb-4 text-center">
-        Lo que dicen nuestros clientes
-      </h2>
-      <div class="flex gap-4 p-4 w-full snap-x overflow-x-auto">
-          <div *ngFor="let item of [].constructor(5); index as i" class="snap-center shrink-0 w-11/12 shadow-lg overflow-hidden">
-                <header class="items-center w-full md:w-11/12 mx-auto my-5 text-lg text-center font-medium">
-                    <h3>
-                        En Construcción
-                    </h3>
-                    <h3>
-                        Se usará la librería de swiperJS
-                    </h3>
-                </header>
-                <p class="w-11/12 md:w-7/12 mx-auto text-center mb-5">
-                    Slide #{{i+1}}
-                </p>
-          </div>
-        </div>
+  <h2 class="text-2xl md:text-3xl mb-4 text-center">
+    Lo que dicen nuestros clientes
+  </h2>
+  <div class="flex gap-4 p-4 w-full snap-x overflow-x-auto">
+    <div
+      *ngFor="let item of [].constructor(5); index as i"
+      class="snap-center shrink-0 w-11/12 shadow-lg overflow-hidden"
+    >
+      <header
+        class="items-center w-full md:w-11/12 mx-auto my-5 text-lg text-center font-medium"
+      >
+        <h3>
+          En Construcción
+        </h3>
+        <h3>
+          Se usará la librería de swiperJS
+        </h3>
+      </header>
+      <p class="w-11/12 md:w-7/12 mx-auto text-center mb-5">
+        Slide #{{i+1}}
+      </p>
+    </div>
+  </div>
 </section>
 
+<section class="w-full min-h-[50vh] py-10 grid bg-black place-content-center">
+  <h2 class="text-2xl text-white md:text-3xl mb-4 text-center">
+    Cómo lo hacemos
+  </h2>
+  <div class="grid w-full grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 mx-auto mb-4">
+    <figure *ngFor="let item of [].constructor(5)" class="mx-6 my-4">
+      <img
+        class="mx-auto"
+        src="https://www.monitorpro.ai/wp-content/uploads/2021/11/Rutas-001.png"
+        alt="Trulli"
+      />
+      <figcaption class="text-sm sm:text-lg text-white my-4 font-semibold text-center">
+        Agrega evidencia digital
+      </figcaption>
+    </figure>    
+  </div>
+</section>

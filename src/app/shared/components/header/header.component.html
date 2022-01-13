@@ -5,7 +5,7 @@
     </div>
     <nav class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
-        <a href="#">
+        <a [routerLink]="['/']">
           <span class="sr-only">Logo menu</span>
           <img class="h-12 w-auto lg:h-16" src="https://www.monitorpro.ai/wp-content/uploads/2020/07/logo_fondo_blanco_v1.png" alt="">
         </a>
@@ -19,20 +19,17 @@
         </button>
       </div>
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-        <a href="#" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
+        <a [routerLink]="['/platform']" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
           Plataforma
-        </a>
-        <a href="#" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
-          Clientes
-        </a>
-        <a href="#" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
+        </a>        
+        <a [routerLink]="['/company']" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
           Compañia
         </a>
-        <a href="#" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
+        <a [routerLink]="['/blog']" class="whitespace-nowrap text-base font-medium text-white hover:text-gray-300 hover:border-b-2 hover:border-yellow-500 mx-3">
           Blog
         </a>
-        <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-yellow-400 hover:bg-yellow-300 hover:shadow-sm hover:shadow-yellow-200 hover:text-gray-700">
-          Contactanos
+        <a [routerLink]="['/request-demo']" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-yellow-400 hover:bg-yellow-300 hover:shadow-sm hover:shadow-yellow-200 hover:text-gray-700">
+          Solicita tu demo
         </a>
       </div>
     </nav>
