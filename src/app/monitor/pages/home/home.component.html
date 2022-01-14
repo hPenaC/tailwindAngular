@@ -3,30 +3,54 @@
 >
   <img
     class="w-auto hidden md:block rounded md:w-1/2 max-h-full mr-4 max-w-screen-xl"
-    src='assets/img/seccion-1-bg-1.jpg'
+    src="assets/img/seccion-1-bg-1.jpg"
     alt="header background image"
   />
-  <div class="w-11/12 md:w-1/2 mx-4 md:mx-8 max-w-screen-xl flex flex-col justify-center items-start h-full">
-    <h1
-      class="text-2xl lg:text-3xl text-yellow-400 text-center md:text-left"
-    >
+  <div
+    class="w-11/12 md:w-1/2 mx-4 md:mx-8 max-w-screen-xl flex flex-col justify-center items-start h-full"
+  >
+    <h1 class="text-2xl lg:text-3xl text-yellow-200 text-center md:text-left">
       MONITOREO AUTOMATIZADO DEL 100% DE TU FLOTA SIN IMPORTAR LA MARCA DEL GPS
     </h1>
-    <h2
-      class="text-lg md:text-xl text-gray-100 text-center md:text-left my-8"
-    >
-      Haz rastreo constante de tu flota y mejora la respuesta de los controladores
-      de tráfico gracias a la generación automática de notificaciones y alertas
+    <h2 class="text-lg md:text-xl text-gray-100 text-center md:text-left my-8">
+      Haz rastreo constante de tu flota y mejora la respuesta de los
+      controladores de tráfico gracias a la generación automática de
+      notificaciones y alertas
     </h2>
     <a
       [routerLink]="['/request-demo']"
-      class="px-4 py-2 self-center md:self-start border border-transparent hover:cursor-pointer rounded-md shadow-sm text-base font-medium text-black bg-yellow-400 hover:bg-yellow-300 hover:shadow-sm hover:shadow-yellow-200 hover:text-gray-700"
+      class="px-4 py-2 self-center md:self-start border border-transparent hover:cursor-pointer rounded-md shadow-sm text-base font-medium text-black bg-yellow-200 hover:bg-yellow-300 hover:shadow-sm hover:shadow-yellow-200 hover:text-gray-700"
     >
       Solicita tu demo
     </a>
   </div>
 </header>
 
+<section class="w-11/12 py-4 lg:py-8 mx-auto ">
+  <h2 class="text-xl md:text-2xl">
+    Qué esperas para integrar monitor a tu empresa ...
+  </h2>
+  <swiper
+    class="w-full py-4 h-32"
+    [config]="config"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange()"
+  >
+    <ng-template swiperSlide *ngFor="let item of logos" class="h-full w-full grid place-content-center">
+      <a
+        href={{item.ref}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="grayscale hover:grayscale-0"          
+          src={{item.img}}
+          alt={{item.alt}}
+        />
+      </a>
+    </ng-template>
+  </swiper>
+</section>
 <section
   class="w-11/12 min-h-[50vh] py-4 lg:py-14 mx-auto grid place-content-center"
 >
@@ -118,16 +142,20 @@
   <h2 class="text-2xl text-white md:text-3xl mb-4 text-center">
     Cómo lo hacemos
   </h2>
-  <div class="grid w-full grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 mx-auto mb-4">
+  <div
+    class="grid w-full grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 mx-auto mb-4"
+  >
     <figure *ngFor="let item of [].constructor(5)" class="mx-6 my-4">
       <img
         class="mx-auto"
         src="https://www.monitorpro.ai/wp-content/uploads/2021/11/Rutas-001.png"
         alt="Trulli"
       />
-      <figcaption class="text-sm sm:text-lg text-white my-4 font-semibold text-center">
+      <figcaption
+        class="text-sm sm:text-lg text-white my-4 font-semibold text-center"
+      >
         Agrega evidencia digital
       </figcaption>
-    </figure>    
+    </figure>
   </div>
 </section>

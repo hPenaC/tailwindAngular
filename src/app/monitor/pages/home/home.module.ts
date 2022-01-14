@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
+import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    SwiperModule,
     RouterModule.forChild(
       [
         {
