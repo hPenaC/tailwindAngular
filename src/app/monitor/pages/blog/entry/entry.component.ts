@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, switchMap } from 'rxjs';
+import { Post } from 'src/app/core/models';
+import { PostService } from 'src/app/core/services/post.service';
 
 @Component({
   selector: 'app-entry',
@@ -9,15 +11,28 @@ import { map } from 'rxjs';
 })
 export class EntryComponent implements OnInit {
 
-  number:string='...'
+  post!:Post;
+  loading:boolean=false;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.url.pipe(map(url=>url[0].path)).subscribe((path)=>
-      this.number=path
-    );
-   }
+  constructor(private activatedRoute: ActivatedRoute,private router:Router, private postService: PostService) {}
 
   ngOnInit(): void {
+    this.loading=true;
+    this.getThePost();
+  }
+
+  getThePost(){
+    this.activatedRoute.url.pipe(map(url=>url[0].path),switchMap((id:string)=>this.postService.getPostById(id))).subscribe((post:Post)=>
+      {                
+        console.log('Post:',post);
+        this.post = post;
+        this.loading=false;
+      },
+      (err)=>{
+        console.log('Error Found, Navigating to Blog');
+        this.router.navigate(['/blog']);
+      }
+    );
   }
 
 }

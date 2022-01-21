@@ -1,21 +1,57 @@
-<header class="w-full h-[40vh] bg-[url(https://www.monitorpro.ai/wp-content/uploads/2020/07/welly-banner-news.jpg)] bg-cover">
-    <div class="w-10/12 h-full pb-8 mx-auto flex items-end">
-        <h2 class="text-3xl font-semibold border-b-2 w-fit border-b-yellow-300 text-white">
-            BLOG
-        </h2>
-    </div>
+<header
+  class="w-full h-[20vh] bg-[url(https://www.monitorpro.ai/wp-content/uploads/2020/07/welly-banner-news.jpg)] bg-cover"
+>
+  <div class="w-10/12 h-full pb-8 mx-auto flex items-end">
+    <h2
+      class="text-3xl font-semibold border-b-2 w-fit border-b-yellow-300 text-white"
+    >
+      BLOG
+    </h2>
+  </div>
 </header>
-<section class="w-full grid grid-cols-1 md:grid-cols-3 py-10 px-10">
-    <div *ngFor="let item of [].constructor(5);index as i" [routerLink]="[i]" class="h-[200px] mx-auto w-full md:w-52 lg:w-64 xl:w-96 my-6 rounded-md overflow-hidden shadow-md hover:shadow-lg hover:cursor-pointer hover:shadow-gray-400 shadow-gray-400">
-      <header class="h-[40%] w-full bg-gradient-to-tr from-zinc-700 to-zinc-500 bg-opacity-95 flex items-end">
-          <h2 class=" w-full mb-3 mx-2 text-zinc-100 font-medium text-xl truncate" >
-              {{exampleBlog.title}}
-          </h2>
-      </header>  
-      <footer class="h-[60%] w-full py-3 px-4">
-        <p class="w-full h-full overflow-hidden text-ellipsis reduceLines">
-            {{exampleBlog.content}}
-        </p>
-    </footer>
+<ng-container *ngIf="!loading; else elseTemplate">
+  <section
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 px-10"
+  >
+    <p *ngIf="posts.length==0" class="text-lg font-medium mx-auto">
+      Todavía no hay publicaciones :(
+    </p>
+    <div
+      class="relative w-[250px] min-h-[200px] lg:w-[300px] py-4 px-8 bg-white shadow-xl shadow-zinc-300 hover:shadow-zinc-400 rounded-lg my-20 mx-auto hover:cursor-pointer"
+      *ngFor="let item of posts" [routerLink]="[item._id]"
+    >
+      <div
+        *ngIf="item.author"
+        class="flex justify-center md:justify-end -mt-16"
+      >
+        <img
+          class="w-[85px] h-[85px] object-cover rounded-full border-2 shadow-lg bg-zinc-500"
+          [src]="(item.author.avatar)?item.author.avatar:'https://cdn.dribbble.com/users/255/screenshots/2260728/media/a9c33d1ca329b981bd31402f1c4d2c56.png?compress=1&resize=800x600&vertical=top'"
+        />
+      </div>
+      <div class="w-full relative mx-auto mt-2 mb-10 flex flex-col">
+        <h2 class="w-full text-gray-800 mt-3 md:text-2xl lg:text-3xl text-xl font-semibold">
+          {{item.title}}
+        </h2>
+        <p class="mt-2 text-gray-600">{{item.abstract}}</p>
+      </div>
+      <div
+        class="absolute bottom-4 w-full flex justify-end px-12 z-[5]"
+        *ngIf="item.author && item.author.fullname"
+      >
+        <a
+          href="mailto:{{(item.author.email)?item.author.email:'contacto@mayasoft.com.co'}}"
+          class="text-xl w-fit font-medium text-zinc-400 hover:text-black z-[5]" (click)="$event.stopPropagation()"
+          >{{item.author.fullname}}</a
+        >
+      </div>
     </div>
-</section>
+  </section>
+</ng-container>
+<ng-template #elseTemplate>
+  <section class="w-full grid place-content-center h-[30vh]">
+    <div class="spinner"></div>
+  </section>
+</ng-template>
+
+<p title=""></p>

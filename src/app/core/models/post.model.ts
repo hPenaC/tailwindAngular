@@ -1,6 +1,13 @@
+import { PostCategory, User } from ".";
+
+
 export interface Post {
-    id:number|string;
+    _id:string;
     title:string;
     content:InnerHTML | string;
-    date:Date;
+    abstract:string;    
+    createdAt:string;
+    category:PostCategory;
+    author:User;
+
 }

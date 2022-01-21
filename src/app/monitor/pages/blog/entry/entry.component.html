@@ -1,4 +1,37 @@
-<section class="w-full h-[calc(100vh-114px)] grid place-content-center">
-    <h2 class="text-2xl font-medium">Entry Example #{{number}}</h2>
-</section>
+<header
+  class="w-full h-[20vh] bg-[url(https://www.monitorpro.ai/wp-content/uploads/2020/07/welly-banner-news.jpg)] bg-cover"
+>
+  <div class="w-10/12 h-full pb-8 mx-auto flex items-end">
+    <h2
+      class="text-3xl font-semibold border-b-2 w-fit border-b-yellow-300 text-white"
+    >
+      BLOG
+    </h2>
+  </div>
+</header>
+<ng-container *ngIf="loading; else elseTemplate">
+  <section class="w-full grid place-content-center h-[30vh]">
+    <div class="spinner"></div>
+  </section>
+</ng-container>
+<ng-template #elseTemplate>
+  <article class="py-12 px-4 w-full min-h-[55vh]">
+    <h1 class="text-4xl text-center mb-4 font-semibold font-heading">
+      {{post.title}}
+    </h1>
+    <p class="text-center">
+      <span>{{post.createdAt | date}}</span>
+      <a
+        class="ml-1 text-zinc-700 font-bold hover:underline"
+        href="mailto:{{(post.author.email)?post.author.email:'contacto@mayasoft.com.co'}}"
+        *ngIf="post.author"
+        >{{post.author.fullname}}</a
+      >
+    </p>
 
+    <div class="max-w-3xl mx-auto">
+      <p class="w-full mt-4" [innerText]="post.content">
+      </p>
+    </div>
+  </article>
+</ng-template>
